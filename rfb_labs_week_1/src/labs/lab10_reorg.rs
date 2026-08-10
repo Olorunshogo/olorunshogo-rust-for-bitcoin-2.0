@@ -49,7 +49,7 @@ pub fn build_reorg_report(
     
     /*
      * Convergence means both nodes now name the same block as their tip at the same
-     *height, which is what the most-work rule forces the shorter branch to accept.
+     * height, which is what the most-work rule forces the shorter branch to accept.
      */
     let converged = final_tips.node_a.best_block_hash == final_tips.node_b.best_block_hash
         && final_tips.node_a.height == final_tips.node_b.height;

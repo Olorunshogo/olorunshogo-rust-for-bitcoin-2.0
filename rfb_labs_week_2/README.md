@@ -5,6 +5,11 @@ ownership, borrowing, collections, and `Result`-based error handling. No externa
 Bitcoin crate is used; the dependency list in `Cargo.toml` is empty on purpose.
 
 All monetary values are integer satoshis (`1 BTC = 100,000,000 sats`).
+The formular for determining the amount of `fee` paid to the miner if calculated by the following:
+
+```rust
+fee = satoshi(sats) / byte
+```
 
 ## Layout
 

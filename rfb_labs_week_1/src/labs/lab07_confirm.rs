@@ -14,6 +14,7 @@ pub fn mine_one_block<C: RpcClient>(client: &C, miner_address: &str) -> LabResul
     // todo!("Lab 07: mine one block")
 
     let hashes = mine_blocks(client, miner_address, 1)?;
+
     hashes
         .into_iter()
         .next()
