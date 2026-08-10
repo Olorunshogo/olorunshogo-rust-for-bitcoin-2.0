@@ -39,7 +39,7 @@ impl Library {
 
         self.items.push(item);
 
-        return Ok(());
+        Ok(())
     }
 
     pub fn register_member(&mut self, member: Member) -> Result<(), LibraryError> {
@@ -51,48 +51,51 @@ impl Library {
         }
 
         self.members.push(member);
-        return Ok(());
+        Ok(())
     }
 
     pub fn find_item(&self, id: u32) -> Option<&Item> {
         // TODO(Part 3): borrow from `self`; do not clone.
         // let _ = id;
         // todo!("find an item")
-        return self.items.iter().find(|item| item.id == id);
+        self.items.iter().find(|item| item.id == id)
     }
 
     pub fn find_member(&self, id: u32) -> Option<&Member> {
         // TODO(Part 3)
         // let _ = id;
         // todo!("find a member")
-        return self.members.iter().find(|member| member.id == id);
+        self.members.iter().find(|member| member.id == id)
     }
 
     pub fn items_by_author<'a>(&'a self, author: &str) -> Vec<&'a Item> {
         // TODO(Part 3): return references to all matching items.
         // let _ = author;
         // todo!("find items by author")
-        return self
-            .items
+        self.items
             .iter()
             .filter(|item| item.author == author)
-            .collect();
+            .collect()
     }
 
     pub fn available_items(&self) -> Vec<&Item> {
         // TODO(Part 3)
         // todo!("find the available items")
-        return self
-            .items
+        self.items
             .iter()
             .filter(|item| matches!(item.status, LoanStatus::Available))
-            .collect();
+            .collect()
     }
 
     pub fn longest_loan_item(&self) -> Option<&Item> {
         // TODO(Part 4): the item that may be kept longest, via `LoanTerms`.
         // todo!("find the longest-loan item")
-        return self.items.iter().max_by_key(|item| item.loan_days());
+        // return self.items.iter().max_by_key(|item| item.loan_days());
+        let longest_days = self.items.iter().map(|item| item.loan_days()).max()?;
+
+        self.items
+            .iter()
+            .find(|item| item.loan_days() == longest_days)
     }
 
     pub fn checkout(&mut self, item_id: u32, member_id: u32, day: u32) -> Result<(), LibraryError> {
@@ -142,7 +145,7 @@ impl Library {
 
         self.members[member_index].borrowed_item_ids.push(item_id);
 
-        return Ok(());
+        Ok(())
     }
 
     /// Returns the late fee owed, in cents.
@@ -193,7 +196,7 @@ impl Library {
 
         let _ = day_borrowed;
 
-        return Ok(fee);
+        Ok(fee)
     }
 
     // Returns all books/items currently in the library.

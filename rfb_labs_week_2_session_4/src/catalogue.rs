@@ -36,7 +36,7 @@ pub trait LoanTerms {
         // let _ = days_held;
         // todo!("calculate the late fee")
         let overdue_days = days_held.saturating_sub(self.loan_days());
-        return overdue_days.saturating_mul(self.daily_late_fee_cents());
+        overdue_days.saturating_mul(self.daily_late_fee_cents())
     }
 }
 
@@ -78,13 +78,13 @@ impl LoanTerms for Item {
     fn loan_days(&self) -> u32 {
         // TODO(Part 4): an item's terms come from its kind.
         // todo!("return the loan length")
-        return self.kind.loan_days();
+        self.kind.loan_days()
     }
 
     fn daily_late_fee_cents(&self) -> u32 {
         // TODO(Part 4)
         // todo!("return the daily late fee")
-        return self.kind.daily_late_fee_cents();
+        self.kind.daily_late_fee_cents()
     }
 }
 
