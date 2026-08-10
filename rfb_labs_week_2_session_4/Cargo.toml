@@ -1,0 +1,12 @@
+# Standalone crate, like the other lab weeks — not part of any parent workspace.
+[workspace]
+
+[package]
+name = "rfb_labs_week_2_session_4"
+version = "0.1.0"
+edition = "2024"
+description = "Rust for Bitcoin 2.0 — Week 2 Session 4 lending-library assignment"
+license = "MIT"
+publish = false
+
+[dependencies]

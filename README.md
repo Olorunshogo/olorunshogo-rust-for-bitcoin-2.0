@@ -41,6 +41,19 @@
 │   ├── Cargo.lock    # Locked dependency versions
 │   ├── ASSIGNMENT.md # Ordered requirements and progress checklist
 │   └── README.md     # Week 2 workflow and written-answer template
+├── rfb_labs_week_2_session_4/ # Session 4 lending-library assignment (pure Rust)
+│   ├── src/          # Student implementation files
+│   │   ├── lib.rs    # Library entry point and public exports
+│   │   ├── catalogue.rs # Media kinds, loan status, items, and the LoanTerms trait
+│   │   ├── member.rs # Library members
+│   │   ├── library.rs # Owning collection, lookups, checkout, and return
+│   │   ├── error.rs  # Custom library errors
+│   │   └── main.rs   # Lending example
+│   ├── tests/        # Starter integration tests
+│   │   └── library.rs # Checkout, borrow limit, late fee, and search tests
+│   ├── Cargo.toml    # Rust package configuration
+│   ├── ASSIGNMENT.md # Ordered requirements and progress checklist
+│   └── README.md     # Session 4 workflow and written-answer template
 ├── .gitignore        # Git ignore patterns
 ├── README.md         # This file
 └── x.sh              # Setup/utility script
@@ -56,6 +69,11 @@
   - **`tests/`** - Unit tests for each lab to verify implementation correctness
 - **`rfb_labs_week_2/`** - Week 2 assignment for modelling a Bitcoin transaction in Rust
   - **`src/`** - Starter implementation, organized by transaction, error, and UTXO concerns
+  - **`tests/`** - Staged integration tests that students enable as they progress
+  - **`ASSIGNMENT.md`** - Requirements in implementation order
+  - **`README.md`** - Student workflow, commands, and written questions
+- **`rfb_labs_week_2_session_4/`** - Session 4 assignment on enums, structs, traits, ownership, borrowing, and error handling, deliberately not Bitcoin-themed so the Rust concepts stand alone
+  - **`src/`** - Starter implementation, organized by catalogue, member, library, and error concerns
   - **`tests/`** - Staged integration tests that students enable as they progress
   - **`ASSIGNMENT.md`** - Requirements in implementation order
   - **`README.md`** - Student workflow, commands, and written questions
