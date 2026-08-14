@@ -1,0 +1,29 @@
+$ bitcoin-cli getrawtransaction dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62 2   # now confirmed, prevout present
+  "vin": [
+    {
+      "txid": "5295b5ba4de09d33c979f6bc66c78689b97816e4c578564626df987157e9f3e9",
+      "vout": 0,
+      "scriptSig": {
+        "asm": "",
+        "hex": ""
+      },
+      "txinwitness": [
+        "304402204c8ab3d62b4a009648a4f56495583ab4117ce08d23ac8b52cb7a995d2d8dde55022052675bfecbf19757fd89ca43a474684799aef8ed5e64b304a7397c9e1adc641701",
+        "02d0d823b819aa29d9b0739ba9ad555b242499b7e28ae093fcfcf852bc831344d5"
+      ],
+      "prevout": {
+        "generated": true,
+        "height": 3,
+        "value": 50.00000000,
+        "scriptPubKey": {
+          "asm": "0 f1611117308480196b4a2d978447b5149d490026",
+          "desc": "addr(bcrt1q79s3z9essjqpj6629ktcg3a4zjw5jqpxt0u5k4)#wf9klmn6",
+          "hex": "0014f1611117308480196b4a2d978447b5149d490026",
+          "address": "bcrt1q79s3z9essjqpj6629ktcg3a4zjw5jqpxt0u5k4",
+          "type": "witness_v0_keyhash"
+        }
+      },
+      "sequence": 4294967293
+    }
+  ],
+  "fee": 0.00002820,

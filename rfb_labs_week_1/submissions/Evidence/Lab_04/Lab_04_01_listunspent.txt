@@ -1,0 +1,32 @@
+$ bitcoin-cli -rpcwallet=miner listunspent
+[
+  {
+    "txid": "5295b5ba4de09d33c979f6bc66c78689b97816e4c578564626df987157e9f3e9",
+    "vout": 0,
+    "address": "bcrt1q79s3z9essjqpj6629ktcg3a4zjw5jqpxt0u5k4",
+    "label": "mining",
+    "scriptPubKey": "0014f1611117308480196b4a2d978447b5149d490026",
+    "amount": 50.00000000,
+    "confirmations": 101,
+    "spendable": true,
+    "solvable": true,
+    "desc": "wpkh([56c5ef11/84h/1h/0h/0/0]02d0d823b819aa29d9b0739ba9ad555b242499b7e28ae093fcfcf852bc831344d5)#4teg73a2",
+    "parent_descs": [
+      "wpkh([56c5ef11/84h/1h/0h]tpubDCZaJCY3s9RJGNHLHEmPPJEpYZ1iQSiui6NwXsY1vQRczmn1THKC2ZtRb46k3CwA2WvwYkfbCMM4rcXFHfPEX15gkhidZd8dwUoVtJVdXCi/0/*)#khuw575e"
+    ],
+    "safe": true
+  }
+]
+
+$ bitcoin-cli -rpcwallet=miner getbalances
+{
+  "mine": {
+    "trusted": 50.00000000,
+    "untrusted_pending": 0.00000000,
+    "immature": 5000.00000000
+  },
+  "lastprocessedblock": {
+    "hash": "26f3a28774438838a4108cb90f7fc59f992a31ec1c1344e7b07a27b19a1f3e0c",
+    "height": 103
+  }
+}

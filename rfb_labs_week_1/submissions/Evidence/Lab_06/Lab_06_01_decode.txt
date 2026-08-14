@@ -1,0 +1,50 @@
+$ bitcoin-cli getrawtransaction dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62 2
+{
+  "txid": "dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62",
+  "hash": "12726efce86f630dde15686966622dece5e44e48d69cac7699172ba725a5ea95",
+  "version": 2,
+  "size": 222,
+  "vsize": 141,
+  "weight": 561,
+  "locktime": 95,
+  "vin": [
+    {
+      "txid": "5295b5ba4de09d33c979f6bc66c78689b97816e4c578564626df987157e9f3e9",
+      "vout": 0,
+      "scriptSig": {
+        "asm": "",
+        "hex": ""
+      },
+      "txinwitness": [
+        "304402204c8ab3d62b4a009648a4f56495583ab4117ce08d23ac8b52cb7a995d2d8dde55022052675bfecbf19757fd89ca43a474684799aef8ed5e64b304a7397c9e1adc641701",
+        "02d0d823b819aa29d9b0739ba9ad555b242499b7e28ae093fcfcf852bc831344d5"
+      ],
+      "sequence": 4294967293
+    }
+  ],
+  "vout": [
+    {
+      "value": 48.99997180,
+      "n": 0,
+      "scriptPubKey": {
+        "asm": "0 4c169d62a457c153322e4e2e1083c1ba14068134",
+        "desc": "addr(bcrt1qfstf6c4y2lq4xv3wfchppq7phg2qdqf596mq94)#3z9rc8wl",
+        "hex": "00144c169d62a457c153322e4e2e1083c1ba14068134",
+        "address": "bcrt1qfstf6c4y2lq4xv3wfchppq7phg2qdqf596mq94",
+        "type": "witness_v0_keyhash"
+      }
+    },
+    {
+      "value": 1.00000000,
+      "n": 1,
+      "scriptPubKey": {
+        "asm": "0 43231331e57a27f6be82f934beaad5a82b3e24c8",
+        "desc": "addr(bcrt1qgv33xv090gnld05zly6ta2k44q4nufxgq8as56)#str7qtz7",
+        "hex": "001443231331e57a27f6be82f934beaad5a82b3e24c8",
+        "address": "bcrt1qgv33xv090gnld05zly6ta2k44q4nufxgq8as56",
+        "type": "witness_v0_keyhash"
+      }
+    }
+  ],
+  "hex": "02000000000101e9f3e9577198df26465678c5e41678b98986c766bcf679c9339de04dbab595520000000000fdffffff02fc051024010000001600144c169d62a457c153322e4e2e1083c1ba1406813400e1f5050000000016001443231331e57a27f6be82f934beaad5a82b3e24c80247304402204c8ab3d62b4a009648a4f56495583ab4117ce08d23ac8b52cb7a995d2d8dde55022052675bfecbf19757fd89ca43a474684799aef8ed5e64b304a7397c9e1adc6417012102d0d823b819aa29d9b0739ba9ad555b242499b7e28ae093fcfcf852bc831344d55f000000"
+}

@@ -44,7 +44,39 @@ impl fmt::Display for LibraryError {
     fn fmt(&self, _formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         // TODO(Part 2): return a useful, human-readable message for every
         // variant. Include the ids and numbers the variant carries.
-        todo!("implement Display for LibraryError")
+        // todo!("implement Display for LibraryError")
+        match self {
+            Self::EmptyTitle => write!(_formatter, "item title cannot be empty"),
+            Self::DuplicateItemId { id } => {
+                write!(_formatter, "an item with id {id} is already stocked")
+            }
+            Self::DuplicateMemberId { id } => {
+                write!(_formatter, "a member with id {id} is already registered")
+            }
+            Self::ItemNotFound { id } => write!(_formatter, "item {id} was not found"),
+            Self::MemberNotFound { id } => write!(_formatter, "member {id} was not found"),
+            Self::ItemAlreadyOnLoan { id, member_id } => {
+                write!(
+                    _formatter,
+                    "item {id} is already on loan to member {member_id}"
+                )
+            }
+            Self::ItemNotOnLoan { id } => write!(_formatter, "item {id} is not on loan"),
+            Self::ItemIsLost { id } => write!(_formatter, "item {id} is lost"),
+            Self::BorrowLimitReached { member_id, limit } => {
+                write!(
+                    _formatter,
+                    "member {member_id} has reached the borrow limit of {limit}"
+                )
+            }
+            Self::InvalidReturnDay {
+                day_borrowed,
+                day_returned,
+            } => write!(
+                _formatter,
+                "return day {day_returned} is earlier than borrow day {day_borrowed}"
+            ),
+        }
     }
 }
 

@@ -1,0 +1,34 @@
+$ bitcoin-cli -rpcwallet=miner sendtoaddress bcrt1qgv33xv090gnld05zly6ta2k44q4nufxgq8as56 1
+dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62
+
+$ bitcoin-cli getrawmempool
+[
+  "dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62"
+]
+
+$ bitcoin-cli -rpcwallet=miner gettransaction dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62
+{
+  "amount": -1.00000000,
+  "fee": -0.00002820,
+  "confirmations": 0,
+  "trusted": true,
+  "txid": "dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62",
+  "wtxid": "12726efce86f630dde15686966622dece5e44e48d69cac7699172ba725a5ea95",
+  "walletconflicts": [
+  ],
+  "mempoolconflicts": [
+  ],
+  "time": 1785761283,
+
+$ bitcoin-cli -rpcwallet=receiver getbalances
+{
+  "mine": {
+    "trusted": 0.00000000,
+    "untrusted_pending": 1.00000000,
+    "immature": 0.00000000
+  },
+  "lastprocessedblock": {
+    "hash": "26f3a28774438838a4108cb90f7fc59f992a31ec1c1344e7b07a27b19a1f3e0c",
+    "height": 103
+  }
+}

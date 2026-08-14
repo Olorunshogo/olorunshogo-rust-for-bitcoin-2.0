@@ -1,0 +1,53 @@
+$ bitcoin-cli generatetoaddress 1 bcrt1q79s3z9essjqpj6629ktcg3a4zjw5jqpxt0u5k4
+  -> 610edad4a58ee42a390b0a02d96d687b5cb92a11610466ab07b4eba88ac73d68
+
+$ bitcoin-cli getrawmempool
+[
+]
+
+$ bitcoin-cli -rpcwallet=miner gettransaction dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62
+{
+  "amount": -1.00000000,
+  "fee": -0.00002820,
+  "confirmations": 1,
+  "blockhash": "610edad4a58ee42a390b0a02d96d687b5cb92a11610466ab07b4eba88ac73d68",
+  "blockheight": 104,
+  "blockindex": 1,
+  "blocktime": 1785761333,
+  "txid": "dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62",
+
+$ bitcoin-cli -rpcwallet=receiver getbalances
+{
+  "mine": {
+    "trusted": 1.00000000,
+    "untrusted_pending": 0.00000000,
+    "immature": 0.00000000
+  },
+  "lastprocessedblock": {
+
+$ bitcoin-cli getblock 610edad4a58ee42a390b0a02d96d687b5cb92a11610466ab07b4eba88ac73d68 1
+{
+  "hash": "610edad4a58ee42a390b0a02d96d687b5cb92a11610466ab07b4eba88ac73d68",
+  "confirmations": 1,
+  "height": 104,
+  "version": 536870912,
+  "versionHex": "20000000",
+  "merkleroot": "8430e47096e634fb3b5e709e829be4a9ab3ecf8ef5e522f93e15f8ae1fd52f41",
+  "time": 1785761333,
+  "mediantime": 1785761259,
+  "nonce": 0,
+  "bits": "207fffff",
+  "target": "7fffff0000000000000000000000000000000000000000000000000000000000",
+  "difficulty": 4.656542373906925e-10,
+  "chainwork": "00000000000000000000000000000000000000000000000000000000000000d2",
+  "nTx": 2,
+  "previousblockhash": "26f3a28774438838a4108cb90f7fc59f992a31ec1c1344e7b07a27b19a1f3e0c",
+  "strippedsize": 326,
+  "size": 471,
+  "weight": 1449,
+  "tx": [
+$ bitcoin-cli getblock 610edad4a58ee42a390b0a02d96d687b5cb92a11610466ab07b4eba88ac73d68 1   # tx list
+  "tx": [
+    "3585ce00c54b0ea22d0fa2817220ee26ba9e5c4884ad5be018b9eef997f69108",
+    "dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62"
+  ]

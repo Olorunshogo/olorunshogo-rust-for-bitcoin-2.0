@@ -1,0 +1,37 @@
+$ bitcoin-cli getblockheader 610edad4a58ee42a390b0a02d96d687b5cb92a11610466ab07b4eba88ac73d68
+{
+  "hash": "610edad4a58ee42a390b0a02d96d687b5cb92a11610466ab07b4eba88ac73d68",
+  "confirmations": 1,
+  "height": 104,
+  "version": 536870912,
+  "versionHex": "20000000",
+  "merkleroot": "8430e47096e634fb3b5e709e829be4a9ab3ecf8ef5e522f93e15f8ae1fd52f41",
+  "time": 1785761333,
+  "mediantime": 1785761259,
+  "nonce": 0,
+  "bits": "207fffff",
+  "target": "7fffff0000000000000000000000000000000000000000000000000000000000",
+  "difficulty": 4.656542373906925e-10,
+  "chainwork": "00000000000000000000000000000000000000000000000000000000000000d2",
+  "nTx": 2,
+  "previousblockhash": "26f3a28774438838a4108cb90f7fc59f992a31ec1c1344e7b07a27b19a1f3e0c"
+}
+
+$ bitcoin-cli -rpcwallet=receiver gettransaction dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62 | grep confirmations
+  "confirmations": 1,
+
+$ bitcoin-cli generatetoaddress 5 bcrt1q79s3z9essjqpj6629ktcg3a4zjw5jqpxt0u5k4
+[
+  "525ad6acf843b4432472d2b85ffb894bccc1a4fb8df7f2f9fe1d77b10f9df06c",
+  "066564cffbc9a29a543571515ba4c63d93458f4dddc14c82bb37b862bfd49d78",
+  "4e271b3706cf48e3cfb24967cc30707bc86a4f34fc35bb72b58fe05603ff74ca",
+  "6dcb7ee0e20e367a28556c109e3b1c4046cc349a76c15c8607b2e3d99680d2c0",
+  "2d5d1d51df1e55467e67ddccbc229326df83b7f5f4de111e4e2c1e6813d49ff8"
+]
+
+$ bitcoin-cli -rpcwallet=receiver gettransaction dc4d0f2c9dcee12b0d400b0b61cea1984e98cc7effef2cec16fe53a083da5a62 | grep confirmations
+  "confirmations": 6,
+
+$ bitcoin-cli getblockheader 610edad4a58ee42a390b0a02d96d687b5cb92a11610466ab07b4eba88ac73d68 | grep -E 'confirmations|chainwork'
+  "confirmations": 6,
+  "chainwork": "00000000000000000000000000000000000000000000000000000000000000d2",

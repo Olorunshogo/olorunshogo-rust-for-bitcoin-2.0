@@ -6,9 +6,9 @@ those functions against Bitcoin Core nodes managed by Polar.
 
 ## Prerequisites
 
-- Rust stable (`rustup`, `cargo`, and `rustfmt`)
-- Docker
-- Polar v4.0.0 or a compatible release
+- [Rust](https://rust-lang.org/tools/install/) stable (`rustup`, `cargo`, and `rustfmt`)
+- [Docker](https://www.docker.com/)
+- [Polar v4.0.0 or a compatible release](https://lightningpolar.com/)
 - A Polar regtest network containing Bitcoin Core
 - `bitcoin-cli` available inside the Bitcoin Core terminal
 

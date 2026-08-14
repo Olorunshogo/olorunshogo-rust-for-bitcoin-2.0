@@ -1,0 +1,36 @@
+$ bitcoin-cli createwallet alice
+{ "name": "alice" }
+
+$ bitcoin-cli -rpcwallet=alice getnewaddress funding
+bcrt1qtt6v37kk8hwu5qjv6flcplhnuptyhn2fuqjlhe
+
+# three separate 0.4 BTC sends
+$ bitcoin-cli -rpcwallet=miner sendtoaddress bcrt1qtt6v37kk8hwu5qjv6flcplhnuptyhn2fuqjlhe 0.4
+f9e512c09219432fc59f6279903c10c7c407e2c59ab3b096cdeabdfe56e73496
+$ bitcoin-cli -rpcwallet=miner sendtoaddress bcrt1qtt6v37kk8hwu5qjv6flcplhnuptyhn2fuqjlhe 0.4
+7049556436f6d3d9317c4ddd61615b67d1471c2fe9919d8461417e297f42a8a1
+$ bitcoin-cli -rpcwallet=miner sendtoaddress bcrt1qtt6v37kk8hwu5qjv6flcplhnuptyhn2fuqjlhe 0.4
+37195215cd00ca9540a2c815f50e6cc1f628447c854bb0cfe627ce744d25337e
+
+$ bitcoin-cli generatetoaddress 1 bcrt1q79s3z9essjqpj6629ktcg3a4zjw5jqpxt0u5k4
+  "6da0696d1c16bf0f1fd9a89113af5a37996048b5b85c1e646d927c18ad87ba36"
+
+$ bitcoin-cli -rpcwallet=alice listunspent
+    "txid": "37195215cd00ca9540a2c815f50e6cc1f628447c854bb0cfe627ce744d25337e",
+    "vout": 0,
+    "address": "bcrt1qtt6v37kk8hwu5qjv6flcplhnuptyhn2fuqjlhe",
+    "amount": 0.40000000,
+    "confirmations": 1,
+    "spendable": true,
+    "txid": "7049556436f6d3d9317c4ddd61615b67d1471c2fe9919d8461417e297f42a8a1",
+    "vout": 1,
+    "address": "bcrt1qtt6v37kk8hwu5qjv6flcplhnuptyhn2fuqjlhe",
+    "amount": 0.40000000,
+    "confirmations": 1,
+    "spendable": true,
+    "txid": "f9e512c09219432fc59f6279903c10c7c407e2c59ab3b096cdeabdfe56e73496",
+    "vout": 0,
+    "address": "bcrt1qtt6v37kk8hwu5qjv6flcplhnuptyhn2fuqjlhe",
+    "amount": 0.40000000,
+    "confirmations": 1,
+    "spendable": true,
