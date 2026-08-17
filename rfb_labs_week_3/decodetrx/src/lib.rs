@@ -89,9 +89,10 @@ pub fn decode_transaction(transaction_hex: String) -> Result<String, Box<dyn std
 
     let version = read_u32(&mut bytes_slice)?;
 
-    // A zero where the input count belongs is the SegWit marker; the flag byte
-    // follows it. Neither carries information the decoder needs, so both are
-    // consumed and the real input count is read after them.
+    /* A zero where the input count belongs is the SegWit marker; the flag byte follows it. 
+        Neither carries information the decoder needs, so both are consumed and the real input count is read after them.
+     */
+    
     let is_segwit = bytes_slice.first() == Some(&0x00);
     if is_segwit {
         if bytes_slice.len() < 2 {

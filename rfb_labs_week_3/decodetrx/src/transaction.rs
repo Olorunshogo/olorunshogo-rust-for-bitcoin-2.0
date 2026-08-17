@@ -57,9 +57,11 @@ impl Txid {
 // === Serialization helpers
 
 fn as_btc<S: Serializer, T: BitcoinValue>(t: &T, s: S) -> Result<S::Ok, S::Error> {
-    // serialize_f64 would emit the shortest round-trip form, turning 100 sats
-    // into 1e-6. Bitcoin amounts are always shown with 8 decimal places, so the
-    // value is written as a raw JSON number instead of going through f64.
+    /* serialize_f64 would emit the shortest round-trip form, turning 100 sats into 1e-6.
+        Bitcoin amounts are always shown with 8 decimal places, so the
+        value is written as a raw JSON number instead of going through f64.
+     */
+    
     let formatted = format!("{:.8}", t.to_btc());
     let raw = RawValue::from_string(formatted).map_err(serde::ser::Error::custom)?;
     raw.serialize(s)
