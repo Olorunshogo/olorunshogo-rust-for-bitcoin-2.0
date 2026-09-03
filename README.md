@@ -75,6 +75,19 @@
 │   ├── Cargo.lock    # Locked dependency versions
 │   ├── ASSIGNMENT.md # Ordered requirements and progress checklist
 │   └── README.md     # Week 3 workflow and written-answer template
+├── rfb_labs_week_5/  # Week 5 address formats and HD wallets labs
+│   ├── grader/       # Grading scripts and evidence checking
+│   ├── src/          # Source code for labs
+│   │   ├── labs/     # Individual lab implementations (lab01-lab10)
+│   │   ├── error.rs  # Error handling
+│   │   ├── lib.rs    # Library entry point
+│   │   └── model.rs  # Data models
+│   ├── submissions/  # Lab submission templates
+│   ├── tests/        # Lab tests
+│   ├── Cargo.toml    # Rust project configuration
+│   ├── Cargo.lock    # Dependency lock file
+│   ├── LABS.md       # Lab documentation
+│   └── README.md     # Week 5 specific README
 ├── .gitignore        # Git ignore patterns
 ├── README.md         # This file
 └── x.sh              # Setup/utility script
@@ -98,6 +111,17 @@
   - **`tests/`** - Staged integration tests that students enable as they progress
   - **`ASSIGNMENT.md`** - Requirements in implementation order
   - **`README.md`** - Student workflow, commands, and written questions
+- **`rfb_labs_week_3/`** - Week 3 assignment on understanding Bitcoin data: parsing and decoding raw transactions
+  - **`trxparse/`** - Program for parsing raw Bitcoin transactions into JSON
+  - **`decodetrx/`** - Program for decoding legacy and SegWit transactions
+  - **`tests/`** - Integration tests for parsing and decoding
+  - **`ASSIGNMENT.md`** - Requirements in implementation order
+  - **`README.md`** - Student workflow, commands, and written questions
+- **`rfb_labs_week_5/`** - Week 5 labs on Bitcoin address formats and HD wallets (BIP39, BIP32, BIP44)
+  - **`grader/`** - Automated grading scripts for evaluating lab submissions
+  - **`src/`** - Source code including lab implementations and supporting modules
+  - **`submissions/`** - Templates for participants to submit their lab evidence
+  - **`tests/`** - Unit tests for each lab to verify implementation correctness
 
 ---
 
@@ -199,6 +223,9 @@ See [`rfb_labs_week_1/README.md`](rfb_labs_week_1/README.md) for detailed enviro
 
 For the transaction modelling assignment, see
 [`rfb_labs_week_2/README.md`](rfb_labs_week_2/README.md).
+
+For address formats and HD wallets, see
+[`rfb_labs_week_5/README.md`](rfb_labs_week_5/README.md).
 
 ---
 

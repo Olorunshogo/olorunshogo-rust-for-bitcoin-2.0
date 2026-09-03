@@ -1,0 +1,15 @@
+[package]
+name = "rfb-labs-week-5"
+version = "0.1.0"
+edition = "2021"
+authors = ["Gideon Bature (@GideonBature)"]
+description = "Rust for Bitcoin 2.0 — Week 5 address formats and HD wallet labs"
+license = "MIT"
+publish = false
+
+[dependencies]
+bip39 = "2.2"
+bitcoin = { version = "0.32", features = ["serde"] }
+hex = "0.4"
+serde = { version = "1", features = ["derive"] }
+

@@ -1,0 +1,104 @@
+name: Grade Week 5 Labs
+
+on:
+  push:
+    branches:
+      - main
+      - rfb_labs_week_5
+    paths:
+      - "rfb_labs_week_5/**"
+      - ".github/workflows/grade-week-5.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "rfb_labs_week_5/**"
+      - ".github/workflows/grade-week-5.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: week-5-grading-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  grade:
+    name: Score ten practical labs
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out submission
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify protected assessment files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            base_sha="${{ github.event.pull_request.base.sha }}"
+          else
+            git fetch origin main --depth=1
+            base_sha="$(git merge-base origin/main HEAD)"
+          fi
+
+          # The authoring PR creates the assessment itself. Protection begins after
+          # the Week 5 package exists on the base branch.
+          if ! git cat-file -e "$base_sha:rfb_labs_week_5/Cargo.toml" 2>/dev/null; then
+            exit 0
+          fi
+
+          changed_files="$(git diff --name-only "$base_sha" HEAD)"
+
+          allowed_pattern='^(rfb_labs_week_5/src/labs/lab[0-9]{2}_[^/]+\.rs|rfb_labs_week_5/src/main\.rs|rfb_labs_week_5/examples/.*|rfb_labs_week_5/submissions/lab_[0-9]{2}\.md|rfb_labs_week_5/submissions/evidence/.*)$'
+
+          disallowed_files="$(
+            printf '%s\n' "$changed_files" |
+              grep -Ev "$allowed_pattern" || true
+          )"
+
+          if [[ -n "$disallowed_files" ]]; then
+            echo "::error title=Protected files modified::Only lab implementations, submission evidence, and optional example programs may be changed."
+            echo
+            echo "Disallowed changes:"
+            printf '%s\n' "$disallowed_files"
+            exit 1
+          fi
+
+      - name: Install stable Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - name: Check formatting
+        working-directory: rfb_labs_week_5
+        run: cargo fmt --check
+        continue-on-error: true
+
+      - name: Grade lab tests and evidence
+        working-directory: rfb_labs_week_5
+        run: bash grader/grade.sh
+
+      - name: Publish score summary
+        if: always()
+        run: cat rfb_labs_week_5/grading/score.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload grading report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rfb-week-5-score-${{ github.run_id }}
+          path: |
+            rfb_labs_week_5/grading/score.md
+            rfb_labs_week_5/grading/score.json
+            rfb_labs_week_5/grading/logs/
+          if-no-files-found: warn
+          retention-days: 30
+
