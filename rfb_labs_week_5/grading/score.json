@@ -1,0 +1,27 @@
+{
+  "labs": [
+    {"lab": 1, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null},
+    {"lab": 2, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null},
+    {"lab": 3, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null},
+    {"lab": 4, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null},
+    {"lab": 5, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null},
+    {"lab": 6, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null},
+    {"lab": 7, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null},
+    {"lab": 8, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null},
+    {"lab": 9, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null},
+    {"lab": 10, "tests_passed": 4, "execution": 4, "evidence": 3, "automated": 7, "instructor_explanation": null}
+  ],
+
+  "execution_total": 40,
+
+  "evidence_total": 30,
+
+  "automated_total": 70,
+
+  "automated_maximum": 70,
+
+  "instructor_explanation_maximum": 30,
+
+  "final_score": null
+
+}
