@@ -27,7 +27,7 @@ pub struct Config {
 
 impl Config {
     pub fn load() -> Result<Self, ConfigError> {
-        // Missing .env is fine — real env vars (CI, shell exports) still work.
+        // Missing .env is fine; real env vars (CI, shell exports) still work.
         let _ = dotenvy::dotenv();
 
         let network = parse_network(&require_var("BITCOIN_NETWORK")?)?;

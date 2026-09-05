@@ -15,7 +15,7 @@ const EXTERNAL_PATH: &str = "m/84h/1h/0h/0";
 const INTERNAL_PATH: &str = "m/84h/1h/0h/1";
 
 pub struct Descriptors {
-    // Private-key-embedded descriptors (tprv-based) — used to build a signing wallet. Never print these.
+    // Private-key-embedded descriptors (tprv-based), used to build a signing wallet. Never print these.
     pub external: String,
     pub internal: String,
     // Public-only equivalents (xpub-based), safe to print or log.
@@ -34,7 +34,7 @@ pub fn load_or_generate_mnemonic(existing: Option<&str>) -> Result<Mnemonic, Wal
                 Mnemonic::generate((WordCount::Words12, Language::English))
                     .map_err(|e| WalletError::Mnemonic(format!("{e:?}")))?;
             let mnemonic = generated.into_key();
-            println!("generated a new mnemonic — save it to MNEMONIC in .env, never commit it:");
+            println!("generated a new mnemonic, save it to MNEMONIC in .env, never commit it:");
             println!("{mnemonic}");
             Ok(mnemonic)
         }
@@ -49,7 +49,7 @@ pub fn descriptors_from_mnemonic(
     network: NetworkKind,
 ) -> Result<Descriptors, WalletError> {
     let secp = Secp256k1::new();
-    // EXTERNAL_PATH/INTERNAL_PATH are compile-time constants, not user input — `expect` is safe
+    // EXTERNAL_PATH/INTERNAL_PATH are compile-time constants, not user input: `expect` is safe
     // here because there's no runtime value that could make this parse fail.
     let external_path = DerivationPath::from_str(EXTERNAL_PATH).expect("EXTERNAL_PATH is valid");
     let internal_path = DerivationPath::from_str(INTERNAL_PATH).expect("INTERNAL_PATH is valid");
@@ -66,7 +66,7 @@ pub fn descriptors_from_mnemonic(
             .into_wallet_descriptor(&secp, network)
             .map_err(|e| WalletError::DescriptorBuild(e.to_string()))?;
 
-    // `Descriptor::to_string()` only serializes the public half — the private key material
+    // `Descriptor::to_string()` only serializes the public half; the private key material
     // lives in the separate KeyMap, so a wallet built from public-only strings would be
     // watch-only. Embed the private keys with `to_string_with_secret` for the wallet-building
     // descriptors, and keep the plain (xpub-only) form for anything that prints or logs one.

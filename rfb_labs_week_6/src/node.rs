@@ -22,7 +22,7 @@ fn to_rpc_auth(auth: &RpcAuthConfig) -> Auth {
 }
 
 /// Connects to a Bitcoin Core node over RPC using bitcoincore-rpc directly. Used for
-/// regtest-only chain control (mining, direct broadcast) that isn't a wallet operation — the
+/// regtest-only chain control (mining, direct broadcast) that isn't a wallet operation; the
 /// wallet's own sync goes through `bdk_bitcoind_rpc::Emitter` instead (see `sync_wallet`).
 pub fn build_rpc_client(rpc_url: &str, auth: &RpcAuthConfig) -> Result<Client, NodeError> {
     Client::new(rpc_url, to_rpc_auth(auth)).map_err(|e| NodeError::ClientBuild(e.to_string()))
@@ -48,7 +48,7 @@ pub fn fund_wallet_regtest(
 
 /// Syncs `wallet` against the node block-by-block via `bdk_bitcoind_rpc::Emitter`, then applies
 /// the current mempool snapshot, persisting after each step. This *is* the wallet's use of
-/// `bitcoincore-rpc` (`Emitter` wraps a `bitcoincore_rpc::Client`) — separate from the direct
+/// `bitcoincore-rpc` (`Emitter` wraps a `bitcoincore_rpc::Client`), separate from the direct
 /// `Client` calls above, which are regtest chain admin, not wallet sync.
 pub fn sync_wallet(
     wallet: &mut PersistedWallet<WalletDb>,
